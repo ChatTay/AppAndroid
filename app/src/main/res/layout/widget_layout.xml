@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="250dp"
+    android:layout_width="250dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/border"
+    >
+
+    <!--clock-->
+    <ViewFlipper
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slidingimage"
+    android:layout_width="230dp"
+    android:layout_height="230dp"
+    android:layout_gravity="center"
+        android:autoStart="true"
+        android:inAnimation="@anim/fade_in"
+        android:outAnimation="@anim/fade_out"
+        android:flipInterval="100000"
+    >
+
+
+
+    </ViewFlipper>
+    <!--image-->
+
+    <FrameLayout
+        android:id="@+id/clock_view"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+
+        >
+        <TextView
+            android:id="@+id/LC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="20dp"
+            android:text="Sun,4Mar2018"
+            android:textSize="9dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:fontFamily="sans-serif-condensed"
+            />
+        <TextView
+            android:id="@+id/textpin"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|right"
+           android:layout_marginRight="81dp"
+            android:gravity="center"
+            android:text="50%"
+            android:textColor="#ffffff"
+            android:textSize="11dp" />
+        <AnalogClock
+            android:id="@+id/AnalogClock"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:dial="@drawable/border"
+            android:hand_hour="@drawable/handminute"
+            android:hand_minute="@drawable/handhour"
+            />
+        <ImageView
+            android:id="@+id/pin"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|left"
+            android:layout_marginLeft="86dp"
+            />
+        </FrameLayout>
+
+
+    <!--end-->
+    <!--menu-->
+    <!--<ViewFlipper-->
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/menu_view"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        >
+    <!--</ViewFlipper>-->
+    <FrameLayout
+        android:id="@+id/menu_view"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+
+        >
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_gravity="center"
+            android:background="@drawable/borde_menu"
+
+            />
+        <Button
+            android:id="@+id/btmenu"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_image_menu"
+            />
+    </FrameLayout>
+    <!--end-->
+    <!--music-->
+        <FrameLayout
+            android:id="@+id/music_view"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+
+            >
+            <ImageView
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
+                android:background="@drawable/borde_menu"
+                />
+            <Button
+                android:id="@+id/btmusic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/music"
+                />
+
+        </FrameLayout>
+
+    <!--end-->
+    <!--list_music-->
+
+
+
+        <FrameLayout
+            android:id="@+id/playmusic"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            >
+
+            <ViewFlipper
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/soundwaves"
+                android:layout_width="115dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|left"
+                android:autoStart="true"
+                android:layout_marginBottom="18dp"
+                android:flipInterval="100"
+                android:visibility="gone"
+
+                >
+            </ViewFlipper>
+
+            <ViewFlipper
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/soundwaves1"
+                android:layout_width="115dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|right"
+                android:layout_marginBottom="18dp"
+                android:autoStart="true"
+                android:flipInterval="100"
+                android:visibility="gone"
+
+
+                >
+            </ViewFlipper>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:text="2 : 50"
+                android:textStyle="bold"
+                android:id="@+id/timedialog"
+                android:textSize="30dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="70dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+
+                />
+
+            <Button
+                android:id="@+id/pree"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center|left"
+                android:layout_marginLeft="50dp"
+                android:background="@android:drawable/ic_media_rew"
+                android:textSize="20dp" />
+            <Button
+            android:id="@+id/pause"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@android:drawable/ic_media_play"
+            android:textSize="20dp" />
+            <Button
+                android:id="@+id/pause1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@android:drawable/ic_media_pause"
+                android:textSize="20dp"
+                android:visibility="gone"/>
+            <Button
+                android:id="@+id/nexx"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center|right"
+                android:layout_marginRight="50dp"
+                android:background="@android:drawable/ic_media_ff"
+                android:textSize="20dp" />
+
+            <FrameLayout
+                android:layout_width="230dp"
+                android:layout_height="115dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/half_circle"
+                >
+                <TextView
+                    android:id="@+id/singer"
+                    android:layout_width="150dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="bottom|center"
+                    android:text="Thanh Hang..."
+                    android:gravity="center"
+                    android:textSize="12dp"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="20dp"
+                    android:maxLength="15"
+                    />
+                <TextView
+                    android:id="@+id/namesong"
+                    android:layout_width="180dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:text="The_gioi_cua_thanh"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:maxLength="20"
+
+                    />
+
+                <Button
+                    android:layout_width="130dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/backhome"
+                    android:layout_gravity="bottom|center"
+                    android:background="@drawable/border_bot"
+                    />
+
+                <Button
+                    android:id="@+id/btlistview"
+                    android:layout_width="22dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right|top"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/listimage" />
+
+                <Button
+                    android:id="@+id/ramdom1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="left|top"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/norandom" />
+                <Button
+                    android:id="@+id/ramdom"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="left|top"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ramdom"
+                    android:visibility="gone"/>
+
+
+
+            </FrameLayout>
+
+            <ProgressBar
+                android:id="@+id/circular_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="255dp"
+                android:layout_height="255dp"
+                android:layout_gravity="center"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="25"
+                android:progressDrawable="@drawable/circular_progressbar" />
+
+
+        </FrameLayout>
+  <!--end-->
+    <!--back-->
+    <FrameLayout
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/listview"
+        android:visibility="gone"
+        >
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="175dp"
+        android:layout_height="181dp"
+        android:layout_gravity="center"
+        android:background="#00000000"
+        android:divider="#00000000"
+        android:scaleType="fitXY"
+        android:scrollbars="none">
+    </ListView>
+
+    <Button
+        android:layout_width="134dp"
+        android:layout_height="22dp"
+        android:id="@+id/btbacklist"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/border_bot"
+        android:layout_marginBottom="9dp"
+        />
+    <ImageView
+        android:layout_width="134dp"
+        android:layout_height="22dp"
+        android:layout_gravity="top|center"
+        android:background="@drawable/halftop"
+       android:layout_marginTop="10dp"
+        />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/pre"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="left|center"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/halfleft" />
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="24dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="right|center"
+        android:background="@drawable/halfright" />
+
+    <FrameLayout
+        android:id="@+id/Widget_full"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="left|top"
+        android:background="@drawable/customshape"
+        android:gravity="center">
+
+
+    </FrameLayout>
+
+    <!--list view-->
+
+
+    <!--end-->
+</FrameLayout>
+
