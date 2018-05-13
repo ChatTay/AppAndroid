@@ -65,9 +65,8 @@ public class MyBatteryReceiver extends Service {
             SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
             String formattedDate = df.format(c);
             updateViews.setTextViewText(R.id.LC,""+formattedDate);
-            updateViews.setTextViewText(R.id.timedialog,""+hour+" : "+minute);
-
-
+            updateViews.setTextViewText(R.id.timedialogh,""+hour);
+            updateViews.setTextViewText(R.id.timedialogm,"   : "+minute);
            if( batteryStatus=="Full")
             {
                 updateViews.setImageViewResource(R.id.pin,R.drawable.if_fully_charged_battery);

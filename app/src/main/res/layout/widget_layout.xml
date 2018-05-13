@@ -20,9 +20,6 @@
         android:outAnimation="@anim/fade_out"
         android:flipInterval="100000"
     >
-
-
-
     </ViewFlipper>
     <!--image-->
 
@@ -49,6 +46,7 @@
             android:textColor="#ffffff"
             android:fontFamily="sans-serif-condensed"
             />
+
         <TextView
             android:id="@+id/textpin"
             android:layout_width="50dp"
@@ -81,6 +79,14 @@
             android:layout_gravity="bottom|left"
             android:layout_marginLeft="86dp"
             />
+
+        <ImageView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@drawable/bordertam"
+            android:layout_gravity="center"
+            />
+
         </FrameLayout>
 
 
@@ -104,18 +110,19 @@
         android:orientation="vertical"
         android:visibility="gone"
 
+
         >
         <ImageView
-            android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_gravity="center"
             android:background="@drawable/borde_menu"
 
             />
         <Button
             android:id="@+id/btmenu"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:background="@drawable/circle_image_menu"
             />
@@ -130,18 +137,17 @@
             android:layout_gravity="center"
             android:orientation="vertical"
             android:visibility="gone"
-
             >
             <ImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_gravity="center"
                 android:background="@drawable/borde_menu"
                 />
             <Button
                 android:id="@+id/btmusic"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:background="@drawable/music"
                 />
@@ -190,18 +196,31 @@
 
                 >
             </ViewFlipper>
+
             <TextView
                 android:layout_width="100dp"
-                android:layout_height="35dp"
-                android:text="2 : 50"
+                android:layout_height="40dp"
+                android:text="02"
                 android:textStyle="bold"
-                android:id="@+id/timedialog"
-                android:textSize="30dp"
+                android:id="@+id/timedialogh"
+                android:textSize="35dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="70dp"
                 android:gravity="center"
+                android:layout_marginRight="30dp"
                 android:textColor="#ffffff"
-
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="   : 50"
+                android:id="@+id/timedialogm"
+                android:textSize="32dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="67dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="10dp"
                 />
 
             <Button
@@ -245,7 +264,7 @@
                 <TextView
                     android:id="@+id/singer"
                     android:layout_width="150dp"
-                    android:layout_height="25dp"
+                    android:layout_height="17dp"
                     android:layout_gravity="bottom|center"
                     android:text="Thanh Hang..."
                     android:gravity="center"
@@ -257,7 +276,7 @@
                 <TextView
                     android:id="@+id/namesong"
                     android:layout_width="180dp"
-                    android:layout_height="30dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:textSize="14dp"
                     android:textStyle="bold"
@@ -265,6 +284,7 @@
                     android:textColor="#ffffff"
                     android:gravity="center"
                     android:maxLength="20"
+                    
 
                     />
 
@@ -387,7 +407,6 @@
     </FrameLayout>
 
     <!--list view-->
-
 
     <!--end-->
 </FrameLayout>

@@ -383,7 +383,7 @@ public class MyWidgetProvider extends AppWidgetProvider{
                 ctime.start();
             }
 
-            //Toast.makeText(context, ":pre:", Toast.LENGTH_LONG).show();
+
         }
         if(nextSong.equals(intent.getAction()))
         {
@@ -556,7 +556,6 @@ public class MyWidgetProvider extends AppWidgetProvider{
                 ComponentName myComponentName = new ComponentName(context, MyWidgetProvider.class);
                 AppWidgetManager manager = AppWidgetManager.getInstance(context);
                 manager.updateAppWidget(myComponentName, ImageView);
-
             }
             face="Face";
             //Toast.makeText(context,""+ImageList.size(),Toast.LENGTH_SHORT).show();
@@ -572,7 +571,7 @@ public class MyWidgetProvider extends AppWidgetProvider{
             }
         }
 
-        Toast.makeText(context,"cham",Toast.LENGTH_SHORT).show();
+        Toast.makeText(context,"cham nhe !",Toast.LENGTH_SHORT).show();
     }
 
     public void SoundOnUpdateAppWidget(final Context context){
@@ -736,7 +735,7 @@ public class MyWidgetProvider extends AppWidgetProvider{
         updateWidget(context);
         context.startService(new Intent(context,MyBatteryReceiver.class));
 
-        /*for (int widgetId : appWidgetIds) {
+        for (int widgetId : appWidgetIds) {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
 
             remoteViews.setOnClickPendingIntent(R.id.next, getPendingSelfIntent(context, next));
@@ -776,7 +775,7 @@ public class MyWidgetProvider extends AppWidgetProvider{
                     onClickPendingIntent);
 
             appWidgetManager.updateAppWidget(widgetId, mView);
-        }*/
+        }
 
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
