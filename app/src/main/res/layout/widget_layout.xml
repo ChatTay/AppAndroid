@@ -8,6 +8,17 @@
     android:background="@drawable/border"
     >
 
+
+    <ImageView
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bordercicle"
+        android:id="@+id/bg"
+        android:visibility="gone"
+        />
+
+
     <!--clock-->
     <ViewFlipper
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,9 +40,11 @@
         android:layout_height="230dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:visibility="gone"
+
 
         >
+
+
         <TextView
             android:id="@+id/LC"
             android:layout_width="wrap_content"
@@ -69,6 +82,7 @@
             android:dial="@drawable/border"
             android:hand_hour="@drawable/handminute"
             android:hand_minute="@drawable/handhour"
+
             />
         <ImageView
             android:id="@+id/pin"
@@ -87,20 +101,92 @@
             android:layout_gravity="center"
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:id="@+id/actionButton"
+            />
+
+<!--123456-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/borderbackground"
+            android:id="@+id/bgch"
+            >
+
+            <ViewFlipper
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/slidingbackground"
+                android:layout_width="255dp"
+                android:layout_height="255dp"
+                android:layout_gravity="center"
+                android:autoStart="true"
+                android:flipInterval="100"
+                >
+            </ViewFlipper>
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="02"
+                android:textStyle="bold"
+                android:id="@+id/timedialogh2"
+                android:textSize="55dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:gravity="center|bottom"
+                android:layout_marginRight="30dp"
+                android:textColor="#ffffff"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:text=": 50"
+                android:id="@+id/timedialogm2"
+                android:textSize="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="48dp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="40dp"
+                />
+            <TextView
+                android:layout_width="115dp"
+                android:layout_height="20dp"
+                android:text="14 thang 4 - 2018"
+                android:id="@+id/time2"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:gravity="center|right"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="15dp"
+                />
+
+            <ProgressBar
+                android:id="@+id/circular_progress_bar2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:indeterminate="false"
+                android:max="360"
+                android:progress="45"
+                android:progressDrawable="@drawable/circular_progressbar"
+                />
+
         </FrameLayout>
+
+    </FrameLayout>
 
 
     <!--end-->
     <!--menu-->
-    <!--<ViewFlipper-->
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/menu_view"
-        android:layout_width="230dp"
-        android:layout_height="230dp"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        >
-    <!--</ViewFlipper>-->
+
     <FrameLayout
         android:id="@+id/menu_view"
         android:layout_width="230dp"
@@ -109,16 +195,14 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
-
-
         >
         <ImageView
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:background="@drawable/borde_menu"
-
             />
+
         <Button
             android:id="@+id/btmenu"
             android:layout_width="70dp"
@@ -126,6 +210,7 @@
             android:layout_gravity="center"
             android:background="@drawable/circle_image_menu"
             />
+
     </FrameLayout>
     <!--end-->
     <!--music-->
@@ -166,7 +251,45 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:orientation="vertical"
+            android:visibility="gone"
             >
+
+            <ImageView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/imagesoundwaves"
+                android:layout_width="115dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|left"
+                android:autoStart="true"
+                android:layout_marginBottom="18dp"
+                android:flipInterval="100"
+                android:visibility="gone"/>
+
+
+            <ImageView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/imagesound"
+                android:layout_width="115dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|left"
+                android:autoStart="true"
+                android:layout_marginBottom="18dp"
+                android:flipInterval="100"
+                android:background="@drawable/image0000001"
+
+                />
+            <ImageView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/imagesound1"
+                android:layout_width="115dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|right"
+                android:layout_marginBottom="18dp"
+                android:autoStart="true"
+                android:flipInterval="100"
+                android:background="@drawable/image0000002"
+                />
+
 
             <ViewFlipper
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -273,19 +396,48 @@
                     android:layout_marginBottom="20dp"
                     android:maxLength="15"
                     />
+
                 <TextView
                     android:id="@+id/namesong"
                     android:layout_width="180dp"
                     android:layout_height="20dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center|bottom"
                     android:textSize="14dp"
                     android:textStyle="bold"
                     android:text="The_gioi_cua_thanh"
                     android:textColor="#ffffff"
                     android:gravity="center"
                     android:maxLength="20"
-                    
+                    android:layout_marginBottom="35dp"
 
+                    />
+
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="12dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:text="0:00s"
+                    android:textColor="#ffffff"
+                    android:gravity="center|left"
+                    android:textStyle="bold"
+                    android:textSize="10dp"
+                    android:id="@+id/run"
+                    />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="12dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:text="3:34s"
+                    android:textColor="#ffffff"
+                    android:gravity="center|right"
+                    android:layout_gravity="top|right"
+                    android:textStyle="bold"
+                    android:textSize="10dp"
+                    android:id="@+id/dura"
                     />
 
                 <Button
@@ -322,8 +474,6 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/ramdom"
                     android:visibility="gone"/>
-
-
 
             </FrameLayout>
 

@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.IBinder;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import java.text.SimpleDateFormat;
@@ -24,6 +25,7 @@ public class MyBatteryReceiver extends Service {
 
     private int batterylevel = 0;
     private String batteryStatus ="";
+
 
     private BroadcastReceiver myReceiver = new BroadcastReceiver()
     {
@@ -65,8 +67,37 @@ public class MyBatteryReceiver extends Service {
             SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
             String formattedDate = df.format(c);
             updateViews.setTextViewText(R.id.LC,""+formattedDate);
-            updateViews.setTextViewText(R.id.timedialogh,""+hour);
-            updateViews.setTextViewText(R.id.timedialogm,"   : "+minute);
+            updateViews.setTextViewText(R.id.time2,""+formattedDate);
+
+            if(hour<10)
+            {
+                updateViews.setTextViewText(R.id.timedialogh,"0"+hour);
+
+                updateViews.setTextViewText(R.id.timedialogh2,"0"+hour);
+            }
+
+            if(minute<10)
+            {
+                updateViews.setTextViewText(R.id.timedialogm,"   : 0"+minute);
+
+                updateViews.setTextViewText(R.id.timedialogm2,": 0"+minute);
+            }
+
+            if(hour>10)
+            {
+                updateViews.setTextViewText(R.id.timedialogh,""+hour);
+
+                updateViews.setTextViewText(R.id.timedialogh2,""+hour);
+            }
+            if(minute>10)
+            {
+                updateViews.setTextViewText(R.id.timedialogm,"   : "+minute);
+
+                updateViews.setTextViewText(R.id.timedialogm2,": "+minute);
+            }
+
+
+
            if( batteryStatus=="Full")
             {
                 updateViews.setImageViewResource(R.id.pin,R.drawable.if_fully_charged_battery);

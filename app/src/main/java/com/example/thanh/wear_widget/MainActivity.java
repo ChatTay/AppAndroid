@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 //Log.v(TAG,"Permission is granted1");
                 return true;
             } else {
-
                 //Log.v(TAG,"Permission is revoked1");
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 3);
                 return false;
@@ -86,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-
     public  boolean isWriteStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -105,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
+
+
     private void CopyRAWtoSDCard(int id, String path) throws IOException {
         InputStream in = getResources().openRawResource(id);
         FileOutputStream out = new FileOutputStream(path);
