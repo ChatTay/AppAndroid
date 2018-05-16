@@ -83,13 +83,13 @@ public class MyBatteryReceiver extends Service {
                 updateViews.setTextViewText(R.id.timedialogm2,": 0"+minute);
             }
 
-            if(hour>10)
+            if(hour>=10)
             {
                 updateViews.setTextViewText(R.id.timedialogh,""+hour);
 
                 updateViews.setTextViewText(R.id.timedialogh2,""+hour);
             }
-            if(minute>10)
+            if(minute>=10)
             {
                 updateViews.setTextViewText(R.id.timedialogm,"   : "+minute);
 
@@ -101,32 +101,56 @@ public class MyBatteryReceiver extends Service {
            if( batteryStatus=="Full")
             {
                 updateViews.setImageViewResource(R.id.pin,R.drawable.if_fully_charged_battery);
+
+                ProgressPlayUpdateAppWidget(context, 360, 100);
+
+
             }
             if(batterylevel<25)
             {
                 updateViews.setImageViewResource(R.id.pin,R.drawable.if_low_battery);
+
             }
             else if(batterylevel<50)
             {
                 updateViews.setImageViewResource(R.id.pin,R.drawable.if_medium_battery);
+
+
             }
             else if(batterylevel<75)
             {
                 updateViews.setImageViewResource(R.id.pin,R.drawable.if_high_battery);
+
             }
             else
             if(batterylevel<=100)
             {
                 updateViews.setImageViewResource(R.id.pin,R.drawable.if_fully_charged_battery);
+
             }
 
+            ProgressPlayUpdateAppWidget(context, 360, batterylevel);
+
             updateViews.setTextViewText(R.id.textpin,""+batterylevel+"%");
+            updateViews.setTextViewText(R.id.powerpintext,""+batterylevel+"%");
 
             ComponentName myComponentName = new ComponentName(context, MyWidgetProvider.class);
             AppWidgetManager manager = AppWidgetManager.getInstance(context);
             manager.updateAppWidget(myComponentName, updateViews);
         }
     };
+
+
+    public void ProgressPlayUpdateAppWidget(final Context context,int max,int run){
+        RemoteViews ClockViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+
+        ClockViews.setProgressBar(R.id.circular_progress_bar2,max,run,false);
+
+        ComponentName myComponentName = new ComponentName(context, MyWidgetProvider.class);
+        AppWidgetManager manager = AppWidgetManager.getInstance(context);
+        manager.updateAppWidget(myComponentName, ClockViews);
+    }
+
 
     @Override
     public IBinder onBind(Intent arg0) {

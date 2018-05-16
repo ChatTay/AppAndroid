@@ -95,15 +95,6 @@ public class MyWidgetProvider extends AppWidgetProvider{
     private static final ArrayList<HashMap<String, String>> ImageList = new ArrayList<HashMap<String, String>>();
     private static String mp3Pattern = ".mp3";
 
-    /*int arr[]={R.drawable.image0000001,R.drawable.image0000002,R.drawable.image0000003,R.drawable.image0000004
-            ,R.drawable.image0000005,R.drawable.image0000006,R.drawable.image0000007,R.drawable.image0000008,R.drawable.image0000009,R.drawable.image0000010
-            ,R.drawable.image0000011,R.drawable.image0000012,R.drawable.image0000013,R.drawable.image0000014,R.drawable.image0000015,R.drawable.image0000016,R.drawable.image0000017
-            ,R.drawable.image0000018,R.drawable.image0000019,R.drawable.image0000020,R.drawable.image0000021,R.drawable.image0000022
-            ,R.drawable.image0000023,R.drawable.image0000024,R.drawable.image0000025,R.drawable.image0000026,R.drawable.image0000027,R.drawable.image0000028,R.drawable.image0000029,R.drawable.image0000030,R.drawable.image0000031,R.drawable.image0000032,R.drawable.image0000033,R.drawable.image0000034,R.drawable.image0000035
-            ,R.drawable.image0000036,R.drawable.image0000037,R.drawable.image0000038,R.drawable.image0000039,R.drawable.image0000040,R.drawable.image0000041,R.drawable.image0000042,R.drawable.image0000043,R.drawable.image0000044,R.drawable.image0000045,R.drawable.image0000046,R.drawable.image0000047,R.drawable.image0000048
-
-    };*/
-
     int arr[]={R.drawable.image0000001,R.drawable.image0000002,R.drawable.image0000003,R.drawable.image0000004
             ,R.drawable.image0000005,R.drawable.image0000006,R.drawable.image0000007,R.drawable.image0000008,R.drawable.image0000009,R.drawable.image0000010
             ,R.drawable.image0000011,R.drawable.image0000012,R.drawable.image0000013,R.drawable.image0000014,R.drawable.image0000015,R.drawable.image0000016,R.drawable.image0000017
@@ -203,11 +194,8 @@ public class MyWidgetProvider extends AppWidgetProvider{
 
             for(int i=1;i<=20;i++)
             {
-
                 RemoteViews ImageView1 = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
                 RemoteViews Image1 = new RemoteViews(context.getPackageName(), R.layout.image_sound_waves);
-
-                //darkenBitMap();
 
                 Image1.setImageViewResource(R.id.imageitem,arr[i]);
                 ImageView1.addView(R.id.soundwaves,Image1);
@@ -220,8 +208,6 @@ public class MyWidgetProvider extends AppWidgetProvider{
 
                 manager1.updateAppWidget(myComponentName1, ImageView1);
             }
-
-
 //789
         }
 
@@ -325,6 +311,8 @@ public class MyWidgetProvider extends AppWidgetProvider{
             else if(control.equalsIgnoreCase("music"))
             {
                 // Toast.makeText(context, "pre ", Toast.LENGTH_LONG).show();
+
+
                 MenuUpdateAppWidget(context);
                 control="menu";
             }
@@ -400,7 +388,7 @@ public class MyWidgetProvider extends AppWidgetProvider{
             //updateWidget(context);
 
 
-            Toast.makeText(context,"bat",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,"bat",Toast.LENGTH_SHORT).show();
         }
         if(playSong1.equals(intent.getAction()))
         {
@@ -420,7 +408,7 @@ public class MyWidgetProvider extends AppWidgetProvider{
 
            // updateWidget(context);
 
-            Toast.makeText(context,"tat",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,"tat",Toast.LENGTH_SHORT).show();
 
 
         }
@@ -724,6 +712,27 @@ public class MyWidgetProvider extends AppWidgetProvider{
                 AppWidgetManager manager = AppWidgetManager.getInstance(context);
                 manager.updateAppWidget(myComponentName, ImageView);
 
+
+                RemoteViews ImageView1 = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+                ImageView1.removeAllViews(R.id.soundwaves);
+                ImageView1.removeAllViews(R.id.soundwaves1);
+
+                for(int i=1;i<=20;i++)
+                {
+
+                    RemoteViews Image1 = new RemoteViews(context.getPackageName(), R.layout.image_sound_waves);
+                    Image1.setImageViewResource(R.id.imageitem,arr[i]);
+                    ImageView1.addView(R.id.soundwaves,Image1);
+                    Image1.setImageViewResource(R.id.imageitem,arr[i]);
+                    ImageView1.addView(R.id.soundwaves1,Image1);
+
+                }
+
+                ComponentName myComponentName1 = new ComponentName(context, MyWidgetProvider.class);
+                AppWidgetManager manager1 = AppWidgetManager.getInstance(context);
+                manager1.updateAppWidget(myComponentName1, ImageView1);
+
+
             face="Face";
 
             //Toast.makeText(context,""+ImageList.size(),Toast.LENGTH_SHORT).show()
@@ -748,7 +757,11 @@ public class MyWidgetProvider extends AppWidgetProvider{
 //log123
         Log.e("log","max :"+max+" run :"+run);
 
-        //Toast.makeText(context,"cham nhe !",Toast.LENGTH_SHORT).show();
+       // Toast.makeText(context,"cham nhe !",Toast.LENGTH_SHORT).show();
+
+        context.stopService(new Intent(context,MyBatteryReceiver.class));
+        context.startService(new Intent(context,MyBatteryReceiver.class));
+
 
 
     }
@@ -847,6 +860,8 @@ public class MyWidgetProvider extends AppWidgetProvider{
         AppWidgetManager manager = AppWidgetManager.getInstance(context);
         manager.updateAppWidget(myComponentName, ClockViews);
     }
+
+
     public void ProgressPlayUpdateAppWidget(final Context context,int max,int run){
         RemoteViews ClockViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
 
@@ -856,6 +871,8 @@ public class MyWidgetProvider extends AppWidgetProvider{
         AppWidgetManager manager = AppWidgetManager.getInstance(context);
         manager.updateAppWidget(myComponentName, ClockViews);
     }
+
+
     protected PendingIntent getPendingSelfIntent(Context context, String action) {
         Intent intent = new Intent(context, getClass());
         intent.setAction(action);
@@ -932,6 +949,8 @@ public class MyWidgetProvider extends AppWidgetProvider{
     public void onUpdate(Context context, AppWidgetManager appWidgetManager,
                          int[] appWidgetIds) {
         updateWidget(context);
+
+        context.stopService(new Intent(context,MyBatteryReceiver.class));
         context.startService(new Intent(context,MyBatteryReceiver.class));
 
         for (int widgetId : appWidgetIds) {
@@ -989,7 +1008,7 @@ public class MyWidgetProvider extends AppWidgetProvider{
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                context.startActivity(intent);
 
-                Toast.makeText(context,"double click !",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context,"double click !",Toast.LENGTH_SHORT).show();
                 Log.e("chamnhe","x :"+x);
 
                 RemoteViews ImageView1 = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
